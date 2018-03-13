@@ -118,7 +118,7 @@ function addRowColor(order, element){
 
   switch (order.flavor) {
     case "caramel":
-      element.css("background-color", "#fbd18d");
+    element.css("background-color", "#fbd18d");
       break;
     case "almond":
 
