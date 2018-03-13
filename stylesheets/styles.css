@@ -1,0 +1,14 @@
+
+.hiddengift {
+  display: none;
+}
+
+.data-coffee-order-blacking{
+  background-color: #F5F5F5 !important;
+  color: #C0C0C0;
+  transition: 100ms;
+}
+
+form :focus:required:invalid{
+  border: 2px solid lightcoral;
+}

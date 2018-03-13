@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>cofferun</title>
+  </head>
+  <body class="container">
+    <header>
+      <h1>CoffeeRun</h1>
+    </header>
+    <section>
+      <div class="row">
+        <div class="col-md-4">
+          <form data-cofee-order="form">
+            <div class="form-group">
+              <label for="coffeeOrder">Cofee Order</label>
+              <input class="form-control" name="coffee" id="coffeeOrder" autofocus placeholder="espresso, late...">
+            </div>
+            <div class="form-group">
+              <label for="emailInput">Email</label>
+              <input class="form-control" type="email" name="EmailAddress" id="emailInput" value="" placeholder="name@mail.com">
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="size" value="short">
+                Short
+              </label>
+              <label>
+                <input type="radio" name="size" value="tail" checked>
+                Tail
+              </label>
+              <label>
+                <input type="radio" name="size" value="grande">
+                Grande
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="flavorShort">Flavor Short</label>
+              <select id="flavorShort" class="form-control" name="flavor">
+                <option value="">None</option>
+                <option value="caramel">Caramel</option>
+                <option value="almond">Almond</option>
+                <option value="mocha">Mocha</option>
+              </select>
+
+            </div>
+            <div class="form-group">
+              <label for="strengthLevel">Caffeine Rating</label>
+              <input man="0" max="100" type="range" name="strength" value="38" id="strengthLevel">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="reset" class="btn btn-default">Reset</button>
+
+
+          </form>
+        </div>
+        <div class="col-md-4">
+          <form data-cofee-order="form">
+            <div class="form-group">
+              <label for="coffeeOrder1">Cofee Order</label>
+              <input class="form-control" name="coffee" id="coffeeOrder1" autofocus placeholder="espresso, late...">
+            </div>
+            <div class="form-group">
+              <label for="emailInput1">Email</label>
+              <input class="form-control" type="email" name="EmailAddress" id="emailInput1" value="" placeholder="name@mail.com">
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="size" value="short">
+                Short
+              </label>
+              <label>
+                <input type="radio" name="size" value="tail" checked>
+                Tail
+              </label>
+              <label>
+                <input type="radio" name="size" value="grande">
+                Grande
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/datastore.js" charset="utf-8"> </script>
+    <script src="scripts/Truck.js" charset="utf-8"> </script>
+    <script src="scripts/main.js" charset="utf-8"> </script>
+    <script src="scripts/formHadler.js" charset="utf-8"> </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+  </body>
+</html>
