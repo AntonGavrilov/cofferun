@@ -18,7 +18,6 @@
     })
   }
 
-
  App.RemoteDataSore = RemoteDataSore;
  window.App = App;
 })(window);

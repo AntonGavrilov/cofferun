@@ -13,6 +13,7 @@ var FormHandler = App.FormHandler;
 var CheckList = App.CheckList;
 var Validation = App.Validation;
 var MyTruck = new Track('nnc-1701', new DataSource());
+var remote = new RemoteDataSore("test");
 
 var formHandler = new FormHandler(FORM_SELECTOR);
 
