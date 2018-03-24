@@ -5,15 +5,16 @@ var FORM_SELECTOR = '[data-coffee-order = "form"]';
 var STRENGTH_LEVEL_SELECTOR = "#strengthLevel";
 var STRENGTH_LEVEL_TITLE_SELECTOR = '.strengthTitle';
 var CHECKLIST_SELECTOR = '[data-coffee-order="checklist"]';
-
+var SERVIER_URL = 'http://coffeerun-v2-rest-api.herokuapp.com/api/coffeeorders';
 var App = window.App;
 var Track = App.Track;
 var DataSource = App.DataStore;
 var FormHandler = App.FormHandler;
 var CheckList = App.CheckList;
 var Validation = App.Validation;
-var MyTruck = new Track('nnc-1733', new DataSource());
-var remote = new RemoteDataSore("test2222");
+var RemoteDataStore = App.RemoteDataStore;
+var remoteDS = new RemoteDataStore(SERVIER_URL);
+var MyTruck = new Track('nnc-1733', remoteDS);
 
 var formHandler = new FormHandler(FORM_SELECTOR);
 
