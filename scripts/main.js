@@ -24,11 +24,14 @@ checkList.addClickHandler(MyTruck.deliverOrder.bind(MyTruck));
 checkList.addDbClickHandler(formHandler.loadOrder.bind(formHandler));
 
 formHandler.addSubmitHandler(function(data){
-  MyTruck.createOrder.call(MyTruck, data);
-  checkList.addRow.call(checkList, data);
+  return MyTruck.createOrder.call(MyTruck, data)
+    .then(function(){
+      checkList.addRow.call(checkList, data);
+    }
+  );
 });
 
-formHandler.addInputValidateHandler("EmailAddress",
+formHandler.addInputValidateHandler("emailAddress",
                                     Validation.isCompanyEmail,
                                     "Not autorized email adress");
 
@@ -39,6 +42,8 @@ formHandler.addInputValidateHandler("coffee",
 formHandler.addInputValidateHandler("strength",
                                     Validation.validateStrength,
                                     "Not valid strength or coffee");
+
+MyTruck.printOrders(checkList.addRow.bind(checkList));
 
 window.MyTrack = MyTruck;
 })(window)

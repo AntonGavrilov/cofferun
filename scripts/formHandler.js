@@ -67,16 +67,25 @@ var STRENGTH_LEVEL_SELECTOR = "#strengthLevel";
       event.preventDefault();
 
       var data = {};
-
       $(this).serializeArray().forEach(function(item){
         if(!data[item.name])
           data[item.name] = item.value;
       });
 
-      $('.SrengthLevelTitle').text("0");
 
-      if(needAchievementGift(data))
+
+      if(!needAchievementGift(data))
       {
+        console.log(data);
+        
+        fn(data)
+          .then(function(){
+            this.reset();
+            $('.SrengthLevelTitle').text("0");
+            this.elements[0].focus();
+          }.bind(this));
+
+      }else{
         $('#MyModal').modal('toggle')
           .on('hidden', function(){
         });
@@ -89,16 +98,11 @@ var STRENGTH_LEVEL_SELECTOR = "#strengthLevel";
         $('#Cancel').on('click', function(event){
           fn(data);
           this.reset();
+          $('.SrengthLevelTitle').text("0");
           this.elements[0].focus();
         }.bind(this))
-
-      }else{
-        fn(data);
-        this.reset();
-        this.elements[0].focus();
-        console.log(data);
       }
-    })
+    });
   };
 
 

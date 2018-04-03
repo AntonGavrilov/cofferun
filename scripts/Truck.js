@@ -1,31 +1,33 @@
-(function(window){
+(function(window) {
   'use strict';
 
   var App = window.App || {};
 
-  function Track(trackId, db){
+  function Track(trackId, db) {
     this.TackId = trackId;
     this.db = db;
   }
 
-    Track.prototype.createOrder = function(order){
-      this.db.add(order.EmailAddress, order);
-      console.log('Adding order for ' + order.EmailAddress);
-    }
+  Track.prototype.createOrder = function(order) {
+    console.log('Adding order for ' + order.emailAddress);
+    return this.db.add(order.emailAddress, order);
+  }
 
-    Track.prototype.deliverOrder = function(customerId){
-      this.db.remove(customerId);
-      console.log('Delivering order for ' + customerId);
-    }
+  Track.prototype.deliverOrder = function(customerId) {
+    console.log('Delivering order for ' + customerId);
+    return this.db.remove(customerId);
+  }
 
-    Track.prototype.printOrders = function(){
-
-      console.log('Track #' + this.TackId + ' has pending orders:')
-      var customerIdArray = Object.keys(this.db.getAll());
-      customerIdArray.forEach(function(id){
-        console.log(this.db.get(id));
-      }, this);
-    }
+  Track.prototype.printOrders = function(printfn) {
+    return this.db.getAll()
+      .then(function(orders) {
+        console.log('Track #' + this.TackId + ' has pending orders:')
+        var customerIdArray = Object.keys(orders);
+        customerIdArray.forEach(function(id) {
+          printfn(orders[id]);
+        }.bind(this));
+      }.bind(this));
+  }
 
   App.Track = Track;
   window.App = App;
