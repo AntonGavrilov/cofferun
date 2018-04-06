@@ -99,9 +99,11 @@ var DATA_ORDER_BLACKING_CLASS = 'data-coffee-order-blacking';
 
     if (coffeeOrder.flavor) {
       description += coffeeOrder.flavor;
+    }else{
+      description += 'without flavor';
     }
 
-    description += coffeeOrder.coffee + ', ';
+    description += ' ' +coffeeOrder.coffee + ', ';
     description += ' (' + coffeeOrder.emailAddress + ')';
 
     $label.append($checkbox);
