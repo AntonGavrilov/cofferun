@@ -2,13 +2,12 @@
   'use strict';
 
   var App = window.App || {};
+  var OfflineDB = App.DataStore;
 
   function Track(trackId, db) {
     this.TackId = trackId;
     this.db = db;
-    var offlineDb = App.DataStore;
-
-    this.offlineDb = new offlineDb();
+    this.offlineDb = new OfflineDB();
   }
 
   Track.prototype.createOrder = function(order) {
@@ -18,17 +17,12 @@
     return this.db.add(order.emailAddress, order)
     .then(
       function(){
-      var deferred = $.Deferred();
-      deferred.resolve(function(){
         var offlineOrders = this.offlineDb.getAll()
           .then(function(orders){
             for(var key in orders){
               this.db.add(key, orders[key]);
             }
-          }.bind(this))
-        }.bind(this))
-        return deferred;
-      }.bind(this),
+          }.bind(this))}.bind(this),
       function(prom)
      {
        var deferred = $.Deferred();

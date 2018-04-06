@@ -125,7 +125,6 @@ function addRowColor(order, element) {
       element.css("background-color", "#fbd18d");
       break;
     case "almond":
-
       element.css("background-color", "#e5cfb8");
       break;
     case "mocha":
